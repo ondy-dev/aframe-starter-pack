@@ -5,11 +5,68 @@
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+
+      <!-- Assets -->
+      <a-assets>
+        <img id="oil-paint" src="Shark Fin Cove Oil Paint.jpg">
+        <img id="tv-static" src="tv static texture.jpg">
+      </a-assets>
+
+      <a-sky src="#oil-paint"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#c2a46a"></a-plane>
+
+      <!-- Beach Chair -->
+      <a-box
+        position="-1.5 0.5 -4"
+        width="1.2" height="0.1" depth="0.8"
+        src="#tv-static">
+      </a-box>
+      <a-box
+        position="-1.5 1.0 -4.35"
+        rotation="-15 0 0"
+        width="1.2" height="0.8" depth="0.08"
+        src="#tv-static">
+      </a-box>
+      <a-box
+        position="-1.95 0.25 -3.65"
+        width="0.07" height="0.5" depth="0.07"
+        color="#8B5E3C">
+      </a-box>
+      <a-box
+        position="-1.05 0.25 -3.65"
+        width="0.07" height="0.5" depth="0.07"
+        color="#8B5E3C">
+      </a-box>
+      <a-box
+        position="-1.95 0.25 -4.35"
+        width="0.07" height="0.5" depth="0.07"
+        color="#8B5E3C">
+      </a-box>
+      <a-box
+        position="-1.05 0.25 -4.35"
+        width="0.07" height="0.5" depth="0.07"
+        color="#8B5E3C">
+      </a-box>
+
+      <!-- Beach Umbrella -->
+      <a-cylinder
+        position="1.5 1.0 -4"
+        radius="0.05" height="2.5"
+        color="#8B5E3C">
+      </a-cylinder>
+      <a-cone
+        position="1.5 2.3 -4"
+        radius-bottom="1.4" radius-top="0.05" height="0.5"
+        src="#tv-static">
+      </a-cone>
+      <a-cone
+        position="1.5 2.1 -4"
+        radius-bottom="1.35" radius-top="0.05" height="0.3"
+        color="#222222"
+        opacity="0.25"
+        transparent="true">
+      </a-cone>
+
     </a-scene>
   </body>
 </html>

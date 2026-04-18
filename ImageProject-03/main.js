@@ -1,7 +1,7 @@
 // ── Backrooms room builder ──────────────────────────────────────────────────
 (function () {
-  const COLS = 9;
-  const ROWS = 9;
+  const COLS = 6;
+  const ROWS = 6;
   const ROOM_W = 6.5;
   const ROOM_D = 6.5;
   const WALL_H = 2.55;
@@ -160,14 +160,17 @@
       light.dataset.max = 0.12;
       return;
     }
+
     make('a-box', {
       position: `${x} ${height - 0.03} ${z}`,
       width: 0.55, height: 0.03, depth: 1.4,
       material: 'color: #fffee0; emissive: #fffcc0; emissiveIntensity: 1.2; shader: flat'
     });
+
     const max = 0.85;
     const light = make('a-light', {
-      type: 'point', color: type === 'flooded' ? '#b0ffa0' : '#ffe898',
+      type: 'point',
+      color: type === 'flooded' ? '#b0ffa0' : '#ffe898',
       intensity: max, distance: ROOM_W * 1.8, decay: 2,
       position: `${x} ${height - 0.1} ${z}`,
       animation: 'property: intensity; from: 0.85; to: 0.15; dur: 220; dir: alternate; loop: true'
@@ -240,11 +243,9 @@
   }
 
   // ── Merged room definitions ────────────────────────────────────────────────
-  // mega = 3×3 grid cells (~19.5×19.5m), supermega = 9×9 grid cells (~58.5×58.5m)
-  // Grid is 14×14 so both fit: supermega at rows 2-10 cols 2-10, mega at rows 11-13 cols 11-13
-  // mega = 2×2 cells (~13×13m), supermega = 4×4 cells (~26×26m)
-  const MEGA      = { id: 'mega',      topR: 6, topC: 6, spanR: 2, spanC: 2, type: 'mega' };
-  const SUPERMEGA = { id: 'supermega', topR: 2, topC: 1, spanR: 4, spanC: 4, type: 'supermega' };
+  // mega = 2×2 cells, supermega = 3×3 cells — both fit inside the 6×6 grid
+  const MEGA      = { id: 'mega',      topR: 4, topC: 4, spanR: 2, spanC: 2, type: 'mega' };
+  const SUPERMEGA = { id: 'supermega', topR: 1, topC: 1, spanR: 3, spanC: 3, type: 'supermega' };
 
   const merged = [];
   for (let r = 0; r < ROWS; r++) merged[r] = new Array(COLS).fill(null);

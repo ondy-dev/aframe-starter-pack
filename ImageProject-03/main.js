@@ -137,16 +137,16 @@
   }
 
   function addTrim(x, z, eastX, southZ) {
-    make('a-box', {
-      position: `${x} 0.06 ${southZ}`,
-      width: ROOM_W, height: 0.12, depth: 0.04,
-      material: 'color: #2a1e08'
-    });
-    make('a-box', {
-      position: `${eastX} 0.06 ${z}`,
-      width: 0.04, height: 0.12, depth: ROOM_D,
-      material: 'color: #2a1e08'
-    });
+    // make('a-box', {
+    //   position: `${x} 0.06 ${southZ}`,
+    //   width: ROOM_W, height: 0.12, depth: 0.04,
+    //   material: 'color: #2a1e08'
+    // });
+    // make('a-box', {
+    //   position: `${eastX} 0.06 ${z}`,
+    //   width: 0.04, height: 0.12, depth: ROOM_D,
+    //   material: 'color: #2a1e08'
+    // });
   }
 
   function addLight(x, z, height, type) {

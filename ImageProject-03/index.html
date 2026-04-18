@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
-  </head>
-  <body>
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backrooms — The Void</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+
+  <style>
+    body { margin: 0; overflow: hidden; }
+
+    #glitch-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="glitch-overlay"></canvas>
+
+<a-scene fog="type: linear; color: #705010; near: 1; far: 9">
+
+  <a-assets timeout="90000">
+    <img id="sky-tex" src="space_background.png">
+    <a-asset-item id="model-bacteria" src="bacteria_lifeform_backrooms.glb"></a-asset-item>
+    <a-asset-item id="model-partygoer" src="partygoer_from_backrooms.glb"></a-asset-item>
+  </a-assets>
+
+  <a-sky src="#sky-tex"></a-sky>
+
+  <a-light type="ambient" color="#7a6010" intensity="0.18"></a-light>
+  <a-light type="hemisphere" color="#c8a020" groundColor="#201808" intensity="0.2"></a-light>
+
+  <a-entity id="env"></a-entity>
+
+  <a-entity id="rig" position="0 0 -3.25">
+    <a-camera wasd-controls="acceleration: 16" look-controls="pointerLockEnabled: true"
+      position="0 1.6 0" near="0.05" far="150">
+      <a-entity position="0 0 -1"
+        geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.011"
+        material="color: #ffffc0; shader: flat; opacity: 0.45">
+      </a-entity>
+    </a-camera>
+  </a-entity>
+
+</a-scene>
+
+<script src="main.js"></script>
+</body>
 </html>
